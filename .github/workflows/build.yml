@@ -67,7 +67,8 @@ jobs:
       - name: Cargo Package
         uses: actions-rs/cargo@v1
         with:
-          command: package --allow-dirty
+          command: package
+          args: --allow-dirty
       
       - name: Publish Release (Github Release)
         uses: softprops/action-gh-release@v1
@@ -112,7 +113,8 @@ jobs:
       - name: Cargo Package
         uses: actions-rs/cargo@v1
         with:
-          command: package --allow-dirty
+          command: package
+          args: --allow-dirty
       
       - name: Publish Release (Github Release)
         uses: softprops/action-gh-release@v1
