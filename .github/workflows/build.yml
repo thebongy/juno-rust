@@ -64,11 +64,11 @@ jobs:
           command: publish
           args: --token ${{ secrets.CRATES_IO_TOKEN }}
       
-      - name: Cargo Package
-        uses: actions-rs/cargo@v1
-        with:
-          command: package
-          args: --allow-dirty
+      # - name: Cargo Package
+      #   uses: actions-rs/cargo@v1
+      #   with:
+      #     command: package
+      #     args: --allow-dirty
       
       - name: Publish Release (Github Release)
         uses: softprops/action-gh-release@v1
@@ -104,11 +104,11 @@ jobs:
       - name: Find and Replace
         run: sed -i -e 's/version = "${{ steps.version_check.outputs.rawVersion }}"/version = "${{ steps.version_check.outputs.rawVersion }}-beta"/g' Cargo.toml
 
-      - name: Publish Release (crates.io)
-        uses: actions-rs/cargo@v1
-        with:
-          command: publish
-          args: --token ${{ secrets.CRATES_IO_TOKEN }} --allow-dirty
+      # - name: Publish Release (crates.io)
+      #   uses: actions-rs/cargo@v1
+      #   with:
+      #     command: publish
+      #     args: --token ${{ secrets.CRATES_IO_TOKEN }} --allow-dirty
 
       - name: Cargo Package
         uses: actions-rs/cargo@v1
